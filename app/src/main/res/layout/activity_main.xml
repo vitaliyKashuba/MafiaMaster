@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="vitaliy94.mafiamaster.MainActivity">
+
+    <TextView
+        android:text="Количество игроков"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        tools:layout_editor_absoluteX="0dp"
+        android:id="@+id/textView3"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <ImageButton
+        android:layout_width="40dp"
+        android:layout_height="25dp"
+        app:srcCompat="@android:drawable/arrow_down_float"
+        tools:layout_editor_absoluteY="0dp"
+        android:id="@+id/buttonLessPlayers"
+        app:layout_constraintRight_toLeftOf="@+id/playersCount" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_height="25dp"
+        tools:layout_editor_absoluteY="0dp"
+        android:id="@+id/playersCount"
+        app:layout_constraintRight_toLeftOf="@+id/buttonMorePlayers"
+        android:layout_width="60dp" />
+
+    <ImageButton
+        android:layout_height="25dp"
+        app:srcCompat="@android:drawable/arrow_up_float"
+        tools:layout_editor_absoluteY="0dp"
+        android:id="@+id/buttonMorePlayers"
+        android:layout_width="40dp"
+        app:layout_constraintRight_toRightOf="parent" />
+
+
+</android.support.constraint.ConstraintLayout>
