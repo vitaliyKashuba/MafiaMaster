@@ -46,4 +46,8 @@ public class MainActivity extends AppCompatActivity
         tvMafiaCount.setText(String.valueOf(mafiaCount));
     }
 
+    public void onStartClick(View view)
+    {
+
+    }
 }

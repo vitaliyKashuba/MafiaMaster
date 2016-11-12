@@ -107,10 +107,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/checkBoxSheriff"
-        app:layout_constraintTop_toBottomOf="@+id/checkBoxDon"
-        android:layout_marginTop="8dp"
         android:layout_marginStart="40dp"
-        app:layout_constraintLeft_toRightOf="@+id/checkBoxManiac" />
+        app:layout_constraintLeft_toRightOf="@+id/checkBoxManiac"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxDon" />
 
     <CheckBox
         android:text="Доктор"
@@ -147,8 +147,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/checkBoxDon"
-        app:layout_constraintTop_toBottomOf="@+id/checkBoxImmortal"
         android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxImmortal"
         android:layout_marginStart="40dp"
         app:layout_constraintLeft_toRightOf="@+id/checkBoxDoctor" />
 
@@ -157,20 +157,42 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/checkBoxImmortal"
-        android:layout_marginStart="24dp"
-        app:layout_constraintLeft_toRightOf="@+id/checkBoxComissar"
         android:layout_marginTop="24dp"
-        app:layout_constraintTop_toBottomOf="@+id/mafiaCount" />
+        app:layout_constraintTop_toBottomOf="@+id/mafiaCount"
+        android:layout_marginStart="24dp"
+        app:layout_constraintLeft_toRightOf="@+id/checkBoxComissar" />
 
     <CheckBox
         android:text="Избранный"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/checkBoxChosenOne"
-        app:layout_constraintTop_toBottomOf="@+id/checkBoxSheriff"
-        android:layout_marginTop="8dp"
         android:layout_marginStart="40dp"
-        app:layout_constraintLeft_toRightOf="@+id/checkBoxWhore" />
+        app:layout_constraintLeft_toRightOf="@+id/checkBoxWhore"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxSheriff" />
+
+    <Button
+        android:text="Начать"
+        android:onClick="onStartClick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonstart"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginStart="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="56dp"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxWhore" />
+
+    <android.support.constraint.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/guideline3"
+        app:layout_constraintGuide_begin="20dp"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteY="20dp"
+        tools:layout_editor_absoluteX="0dp" />
 
 
 </android.support.constraint.ConstraintLayout>
