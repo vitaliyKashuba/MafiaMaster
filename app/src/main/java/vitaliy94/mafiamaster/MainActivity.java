@@ -16,8 +16,7 @@ public class MainActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //TextView tvPlayersCount = (TextView)findViewById(R.id.playersCount);
-        //tvPlayersCount.setText(String.valueOf(playersCount));
+        tvPlayersCount = (TextView)findViewById(R.id.playersCount);
     }
 
     public void onLessPlayersClick(View view)
@@ -29,12 +28,13 @@ public class MainActivity extends AppCompatActivity
     public void onMorePlayersClick(View view)
     {
         playersCount++;
-        setPlayersCountText(String.valueOf(playersCount));
+        tvPlayersCount.setText(String.valueOf(playersCount));
+        //setPlayersCountText(String.valueOf(playersCount));
     }
 
     public void setPlayersCountText(String text)
     {
-        TextView tvPlayersCount = (TextView)findViewById(R.id.playersCount);
+        //TextView tvPlayersCount = (TextView)findViewById(R.id.playersCount);
         tvPlayersCount.setText(text);
     }
 
