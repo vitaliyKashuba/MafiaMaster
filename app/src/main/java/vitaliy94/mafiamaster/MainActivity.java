@@ -19,13 +19,22 @@ public class MainActivity extends AppCompatActivity
         tvPlayersCount = (TextView)findViewById(R.id.playersCount);
     }
 
-    public void onLessPlayersClick(View view)
+    public void onPlayersClick(View view)
     {
-        playersCount--;
-        setPlayersCountText(String.valueOf(playersCount));
+        switch(view.getId())
+        {
+            case R.id.buttonLessPlayers:
+                playersCount--;
+                break;
+            case R.id.buttonMorePlayers:
+                playersCount++;
+                break;
+        }
+
+        tvPlayersCount.setText(String.valueOf(playersCount));
     }
 
-    public void onMorePlayersClick(View view)
+    /*public void onMorePlayersClick(View view)
     {
         playersCount++;
         tvPlayersCount.setText(String.valueOf(playersCount));
@@ -36,6 +45,6 @@ public class MainActivity extends AppCompatActivity
     {
         //TextView tvPlayersCount = (TextView)findViewById(R.id.playersCount);
         tvPlayersCount.setText(text);
-    }
+    }*/
 
 }

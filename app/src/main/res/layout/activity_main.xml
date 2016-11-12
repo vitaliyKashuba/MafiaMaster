@@ -23,7 +23,7 @@
     <ImageButton
         android:layout_width="40dp"
         android:layout_height="25dp"
-        android:onClick="onLessPlayersClick"
+        android:onClick="onPlayersClick"
         app:srcCompat="@android:drawable/arrow_down_float"
         tools:layout_editor_absoluteY="0dp"
         android:id="@+id/buttonLessPlayers"
@@ -39,7 +39,7 @@
 
     <ImageButton
         android:layout_height="25dp"
-        android:onClick="onMorePlayersClick"
+        android:onClick="onPlayersClick"
         app:srcCompat="@android:drawable/arrow_up_float"
         tools:layout_editor_absoluteY="0dp"
         android:id="@+id/buttonMorePlayers"
