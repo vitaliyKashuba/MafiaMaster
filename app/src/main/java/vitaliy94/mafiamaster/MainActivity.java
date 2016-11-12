@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity
 
         Randomizer.randomize(roles);
 
-       // Intent intent = new Intent(MainActivity.this, RolesRandomizeActivity.class);
-        //startActivity(intent);
+        Intent intent = new Intent(MainActivity.this, RolesRandomizeActivity.class);
+        startActivity(intent);
     }
 }
