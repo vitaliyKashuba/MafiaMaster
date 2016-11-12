@@ -27,4 +27,15 @@ public class RolesRandomizeActivity extends AppCompatActivity
 
     }
 
+    public void onGetRoleClick(View view)
+    {
+    }
+
+    public void onStartGameClick(View view)
+    {
+    }
+
+    public void onNextPlayerClick(View view)
+    {
+    }
 }
