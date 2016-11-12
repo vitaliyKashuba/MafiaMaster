@@ -74,10 +74,10 @@
         android:layout_height="25dp"
         android:id="@+id/mafiaCount"
         android:layout_width="25dp"
-        android:layout_marginStart="8dp"
-        app:layout_constraintLeft_toRightOf="@+id/buttonLessMafia"
+        android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@+id/playersCount"
-        android:layout_marginTop="8dp" />
+        android:layout_marginStart="8dp"
+        app:layout_constraintLeft_toRightOf="@+id/buttonLessMafia" />
 
     <ImageButton
         android:layout_height="25dp"
@@ -89,6 +89,88 @@
         app:layout_constraintLeft_toRightOf="@+id/mafiaCount"
         app:layout_constraintTop_toBottomOf="@+id/buttonMorePlayers"
         android:layout_marginTop="8dp" />
+
+    <CheckBox
+        android:text="Комиссар"
+        android:layout_width="wrap_content"
+        android:layout_height="28dp"
+        tools:layout_editor_absoluteX="0dp"
+        android:id="@+id/checkBoxComissar"
+        android:duplicateParentState="false"
+        android:lineSpacingExtra="8sp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        android:checked="true" />
+
+    <CheckBox
+        android:text="Шериф"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkBoxSheriff"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxDon"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="40dp"
+        app:layout_constraintLeft_toRightOf="@+id/checkBoxManiac" />
+
+    <CheckBox
+        android:text="Доктор"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="0dp"
+        android:id="@+id/checkBoxDoctor"
+        android:checked="true"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxComissar" />
+
+    <CheckBox
+        android:text="Маньяк"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="0dp"
+        android:id="@+id/checkBoxManiac"
+        android:checked="true"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxDoctor" />
+
+    <CheckBox
+        android:text="Путана"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="3dp"
+        android:id="@+id/checkBoxWhore"
+        android:checked="true"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxManiac" />
+
+    <CheckBox
+        android:text="Дон мафии"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkBoxDon"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxImmortal"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="40dp"
+        app:layout_constraintLeft_toRightOf="@+id/checkBoxDoctor" />
+
+    <CheckBox
+        android:text="Бессмертный"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkBoxImmortal"
+        android:layout_marginStart="24dp"
+        app:layout_constraintLeft_toRightOf="@+id/checkBoxComissar"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@+id/mafiaCount" />
+
+    <CheckBox
+        android:text="Избранный"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkBoxChosenOne"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxSheriff"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="40dp"
+        app:layout_constraintLeft_toRightOf="@+id/checkBoxWhore" />
 
 
 </android.support.constraint.ConstraintLayout>
