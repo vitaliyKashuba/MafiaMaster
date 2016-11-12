@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Mafia Master</string>
+    <string name="inputNameHint">Имя игрока</string>
 </resources>
