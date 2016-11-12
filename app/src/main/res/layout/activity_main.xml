@@ -27,7 +27,8 @@
         app:srcCompat="@android:drawable/arrow_down_float"
         tools:layout_editor_absoluteY="0dp"
         android:id="@+id/buttonLessPlayers"
-        app:layout_constraintRight_toLeftOf="@+id/playersCount" />
+        android:layout_marginStart="8dp"
+        app:layout_constraintLeft_toRightOf="@+id/textView3" />
 
     <TextView
         android:text="10"
@@ -35,7 +36,8 @@
         tools:layout_editor_absoluteY="0dp"
         android:id="@+id/playersCount"
         android:layout_width="25dp"
-        app:layout_constraintRight_toLeftOf="@+id/buttonMorePlayers" />
+        android:layout_marginStart="8dp"
+        app:layout_constraintLeft_toRightOf="@+id/buttonLessPlayers" />
 
     <ImageButton
         android:layout_height="25dp"
@@ -44,7 +46,49 @@
         tools:layout_editor_absoluteY="0dp"
         android:id="@+id/buttonMorePlayers"
         android:layout_width="40dp"
-        app:layout_constraintRight_toRightOf="parent" />
+        android:layout_marginStart="8dp"
+        app:layout_constraintLeft_toRightOf="@+id/playersCount" />
+
+    <TextView
+        android:text="Количество мафии"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        tools:layout_editor_absoluteX="0dp"
+        android:id="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        android:layout_marginTop="8dp" />
+
+    <ImageButton
+        android:layout_width="40dp"
+        android:layout_height="25dp"
+        android:onClick="onPlayersClick"
+        app:srcCompat="@android:drawable/arrow_down_float"
+        android:id="@+id/buttonLessMafia"
+        android:layout_marginStart="16dp"
+        app:layout_constraintLeft_toRightOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/buttonLessPlayers"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:text="2"
+        android:layout_height="25dp"
+        android:id="@+id/mafiaCount"
+        android:layout_width="25dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintLeft_toRightOf="@+id/buttonLessMafia"
+        app:layout_constraintTop_toBottomOf="@+id/playersCount"
+        android:layout_marginTop="8dp" />
+
+    <ImageButton
+        android:layout_height="25dp"
+        android:onClick="onPlayersClick"
+        app:srcCompat="@android:drawable/arrow_up_float"
+        android:id="@+id/buttonMoreMafia"
+        android:layout_width="40dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintLeft_toRightOf="@+id/mafiaCount"
+        app:layout_constraintTop_toBottomOf="@+id/buttonMorePlayers"
+        android:layout_marginTop="8dp" />
 
 
 </android.support.constraint.ConstraintLayout>

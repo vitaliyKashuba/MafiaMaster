@@ -9,14 +9,19 @@ public class MainActivity extends AppCompatActivity
 {
 
     int playersCount = 10;
+    int mafiaCount = 2;
+
     TextView tvPlayersCount;
+    TextView tvMafiaCount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         tvPlayersCount = (TextView)findViewById(R.id.playersCount);
+        tvMafiaCount = (TextView)findViewById(R.id.mafiaCount);
     }
 
     public void onPlayersClick(View view)
@@ -29,22 +34,16 @@ public class MainActivity extends AppCompatActivity
             case R.id.buttonMorePlayers:
                 playersCount++;
                 break;
+            case R.id.buttonLessMafia:
+                mafiaCount--;
+                break;
+            case R.id.buttonMoreMafia:
+                mafiaCount++;
+                break;
         }
 
         tvPlayersCount.setText(String.valueOf(playersCount));
+        tvMafiaCount.setText(String.valueOf(mafiaCount));
     }
-
-    /*public void onMorePlayersClick(View view)
-    {
-        playersCount++;
-        tvPlayersCount.setText(String.valueOf(playersCount));
-        //setPlayersCountText(String.valueOf(playersCount));
-    }
-
-    public void setPlayersCountText(String text)
-    {
-        //TextView tvPlayersCount = (TextView)findViewById(R.id.playersCount);
-        tvPlayersCount.setText(text);
-    }*/
 
 }
