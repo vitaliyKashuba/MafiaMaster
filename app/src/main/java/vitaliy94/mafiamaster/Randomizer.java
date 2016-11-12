@@ -7,6 +7,11 @@ import java.util.Random;
 
 public class Randomizer
 {
+    /**
+     * mix roles in array list
+     * used because when array list firstly filled all active roles are first, then mafia, then citizens
+     * @param roles Array list with roles
+     */
     public static void randomize(ArrayList<Roles> roles)
     {
         Random random = new Random(System.currentTimeMillis());
