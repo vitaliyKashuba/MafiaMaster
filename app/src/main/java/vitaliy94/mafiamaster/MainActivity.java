@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity
         tvMafiaCount.setText(String.valueOf(mafiaCount));
     }
 
-    public void onStartClick(View view)
+    public void onStartClick(View view) //TODO add exception if roles more then players
     {
         roles = new ArrayList<>();
 
@@ -118,8 +118,9 @@ public class MainActivity extends AppCompatActivity
         }
 
 
+        Randomizer.randomize(roles);
 
-        Intent intent = new Intent(MainActivity.this, RolesRandomizeActivity.class);
-        startActivity(intent);
+       // Intent intent = new Intent(MainActivity.this, RolesRandomizeActivity.class);
+        //startActivity(intent);
     }
 }
