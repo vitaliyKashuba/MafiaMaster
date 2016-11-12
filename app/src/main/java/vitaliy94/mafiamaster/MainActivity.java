@@ -1,5 +1,6 @@
 package vitaliy94.mafiamaster;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -48,6 +49,8 @@ public class MainActivity extends AppCompatActivity
 
     public void onStartClick(View view)
     {
+        Intent intent = new Intent(MainActivity.this, RolesRandomizeActivity.class);
+        startActivity(intent);
 
     }
 }
