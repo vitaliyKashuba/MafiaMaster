@@ -118,6 +118,33 @@ public class RolesRandomizeActivity extends AppCompatActivity
             case MAFIA:
                 ibGetRole.setImageResource(R.drawable.mafia);
                 break;
+            case COMISSAR:
+                ibGetRole.setImageResource(R.drawable.card_comissar);
+                break;
+            case DOCTOR:
+                ibGetRole.setImageResource(R.drawable.card_doctor);
+                break;
+            case MANIAC:
+                ibGetRole.setImageResource(R.drawable.card_maniac);
+                break;
+            case WHORE:
+                ibGetRole.setImageResource(R.drawable.card_whore);
+                break;
+            case IMMORTAL:
+                ibGetRole.setImageResource(R.drawable.card_immortal);
+                break;
+            case DON:
+                ibGetRole.setImageResource(R.drawable.card_don);
+                break;
+            case SHERIFF:
+                ibGetRole.setImageResource(R.drawable.card_sheriff);
+                break;
+            case CHOSEN_ONE:
+                ibGetRole.setImageResource(R.drawable.card_chosen_one);
+                break;
+            case CITIZEN:
+                ibGetRole.setImageResource(R.drawable.card_citizen);
+                break;
         }
     }
 

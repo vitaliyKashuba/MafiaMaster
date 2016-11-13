@@ -34,14 +34,13 @@ public class GameActivity extends AppCompatActivity
 
         players = (HashMap<String, Roles>)getIntent().getSerializableExtra("players");
 
-        Set<String> p = players.keySet();
-        String[] playersRoles = new String[players.size()];
-        Object[]po = p.toArray();
+        Set<String> p = players.keySet();                       //
+        String[] playersRoles = new String[players.size()];     //TODO refactor it. later
+        Object[]po = p.toArray();                               //
 
         for(int i = 0; i < p.size(); i++)
         {
-            playersRoles[i] = String.valueOf(po[i]) + "\t" + getString(players.get(String.valueOf(po[i])).getResId());
-            //Log.d("str", playersRoles[i]);
+            playersRoles[i] = fillWithSpaces(String.valueOf(po[i]), 12) + " " + getString(players.get(String.valueOf(po[i])).getResId());
         }
 
         ArrayAdapter<String> ad = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, playersRoles);
@@ -67,5 +66,32 @@ public class GameActivity extends AppCompatActivity
                 Log.d("html", tv.getText().toString());
             }
         });
+
+    }
+
+    /**
+     * fill string with spaces
+     * used to align collumns
+     *
+     * doesn't work :(
+     *
+     * @return
+     */
+    String fillWithSpaces(String str, int toSize)
+    {
+        if(str.length()>=toSize)
+        {
+            return str;
+        }
+        else
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.append(str);
+            for (int i = 0; i < toSize-str.length(); i++)
+            {
+                sb.append(" ");
+            }
+            return sb.toString();
+        }
     }
 }
