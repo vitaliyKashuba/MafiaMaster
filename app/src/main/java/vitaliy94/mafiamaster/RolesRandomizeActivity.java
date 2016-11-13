@@ -1,5 +1,6 @@
 package vitaliy94.mafiamaster;
 
+import android.content.Intent;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -94,6 +95,9 @@ public class RolesRandomizeActivity extends AppCompatActivity
     public void onStartGameClick(View view)
     {
         //start game
+        Intent intent = new Intent(RolesRandomizeActivity.this, GameActivity.class);
+        //intent.putExtra("roles", roles);
+        startActivity(intent);
     }
 
     /**
