@@ -76,6 +76,7 @@ public class RolesRandomizeActivity extends AppCompatActivity
         {
             inputName.setText("");
             //ibGetRole.setI
+            getString(R.string.role_comissar);
             Snackbar.make(view, "Игрок добавлен, осталось " + (roles.size()-playersIterator), Snackbar.LENGTH_LONG).setDuration(4000).show();
             bNextPlayer.setClickable(true);
         }

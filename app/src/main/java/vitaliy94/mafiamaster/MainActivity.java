@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity
         }
         if(cbChosenOne.isChecked())
         {
-            roles.add(Roles.SHOSEN_ONE);
+            roles.add(Roles.CHOSEN_ONE);
         }
 
         for (int i = 0; i < mafiaCount; i++)
