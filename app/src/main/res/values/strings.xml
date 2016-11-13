@@ -11,4 +11,5 @@
     <string name="role_sheriff">Шериф</string>
     <string name="role_chosen_one">Избранный</string>
     <string name="role_citizen">Мирный</string>
+    <string name = "striked_text_example"><strike>Текст</strike></string>
 </resources>

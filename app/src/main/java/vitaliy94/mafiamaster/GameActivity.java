@@ -1,11 +1,16 @@
 package vitaliy94.mafiamaster;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -41,5 +46,26 @@ public class GameActivity extends AppCompatActivity
 
         ArrayAdapter<String> ad = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, playersRoles);
         listView.setAdapter(ad);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l)
+            {
+                TextView tv = (TextView) view;
+                String txt = tv.getText().toString();
+                if(!txt.contains("DEAD"))
+                {
+                    tv.setText(txt + " DEAD");
+                    tv.setBackgroundColor(Color.RED);
+                }
+                else
+                {
+                    tv.setText(txt.substring(0, txt.length()-5));
+                    tv.setBackgroundColor(Color.WHITE);
+                }
+                Log.d("html", tv.getText().toString());
+            }
+        });
     }
 }
