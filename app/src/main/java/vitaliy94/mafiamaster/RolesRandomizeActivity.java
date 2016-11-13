@@ -10,6 +10,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.TreeMap;
@@ -18,6 +19,7 @@ public class RolesRandomizeActivity extends AppCompatActivity
 {
     TextInputLayout textInputLayout;
     EditText inputName;
+    TextView twRoleName;
 
     Button bStartGame;
     Button bGetRole;
@@ -38,6 +40,7 @@ public class RolesRandomizeActivity extends AppCompatActivity
 
         textInputLayout = (TextInputLayout)findViewById(R.id.inputNameLayout);
         inputName = (EditText)textInputLayout.findViewById(R.id.inputName);
+        twRoleName = (TextView)findViewById(R.id.textViewRole);
 
         textInputLayout.setHint(getString(R.string.inputNameHint));
 
@@ -62,7 +65,8 @@ public class RolesRandomizeActivity extends AppCompatActivity
     public void onGetRoleClick(View view)
     {
         String name = inputName.getText().toString();
-        players.put(name, roles.get(playersIterator));
+        Roles role = roles.get(playersIterator);
+        players.put(name, role);
         playersIterator++;
 
         bGetRole.setClickable(false);
@@ -75,7 +79,7 @@ public class RolesRandomizeActivity extends AppCompatActivity
         else
         {
             inputName.setText("");
-            //ibGetRole.setI
+            twRoleName.setText(getString(role.getResId()));
             getString(R.string.role_comissar);
             Snackbar.make(view, "Игрок добавлен, осталось " + (roles.size()-playersIterator), Snackbar.LENGTH_LONG).setDuration(4000).show();
             bNextPlayer.setClickable(true);
@@ -99,5 +103,6 @@ public class RolesRandomizeActivity extends AppCompatActivity
     {
         bGetRole.setClickable(true);
         bNextPlayer.setClickable(false);
+        twRoleName.setText("");
     }
 }
