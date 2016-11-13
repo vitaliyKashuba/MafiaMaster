@@ -81,7 +81,6 @@ public class RolesRandomizeActivity extends AppCompatActivity
         }
         else
         {
-            inputName.setText("");
             Snackbar.make(view, "Игрок добавлен, осталось " + (roles.size()-playersIterator), Snackbar.LENGTH_LONG).setDuration(4000).show();
             bNextPlayer.setClickable(true);
         }
@@ -105,6 +104,7 @@ public class RolesRandomizeActivity extends AppCompatActivity
      */
     public void onNextPlayerClick(View view)
     {
+        inputName.setText("");
         ibGetRole.setClickable(true);
         bNextPlayer.setClickable(false);
         twRoleName.setText("");
