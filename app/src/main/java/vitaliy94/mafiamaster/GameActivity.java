@@ -30,16 +30,16 @@ public class GameActivity extends AppCompatActivity
         players = (HashMap<String, Roles>)getIntent().getSerializableExtra("players");
 
         Set<String> p = players.keySet();
-        String[] pl = new String[players.size()];
+        String[] playersRoles = new String[players.size()];
         Object[]po = p.toArray();
 
         for(int i = 0; i < p.size(); i++)
         {
-            pl[i] = String.valueOf(po[i]);
-            Log.d("str", pl[i]);
+            playersRoles[i] = String.valueOf(po[i]) + "\t" + getString(players.get(String.valueOf(po[i])).getResId());
+            //Log.d("str", playersRoles[i]);
         }
 
-        ArrayAdapter<String> ad = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, pl);
+        ArrayAdapter<String> ad = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, playersRoles);
         listView.setAdapter(ad);
     }
 }
