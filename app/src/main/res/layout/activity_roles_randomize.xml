@@ -33,13 +33,15 @@
                 android:selectAllOnFocus="true" />
         </android.support.design.widget.TextInputLayout>
 
-        <ImageView
+        <ImageButton
             android:layout_width="272dp"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/card_unknown2"
             android:id="@+id/imageView"
             tools:layout_editor_absoluteX="8dp"
             android:layout_marginTop="8dp"
+            android:onClick="onGetRoleClick"
+            android:background="@null"
             app:layout_constraintTop_toBottomOf="@+id/inputNameLayout" />
 
         <TextView
@@ -52,22 +54,13 @@
             android:textAlignment="center" />
 
         <Button
-            android:onClick="onGetRoleClick"
-            android:text="Получить роль"
-            android:layout_width="272dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/buttonGetRole"
-            tools:layout_editor_absoluteX="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/textViewRole" />
-
-        <Button
             android:onClick="onNextPlayerClick"
             android:text="Следующий игрок"
             android:layout_width="272dp"
             android:layout_height="wrap_content"
             android:id="@+id/buttonNextPlayer"
             tools:layout_editor_absoluteX="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/buttonGetRole" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewRole" />
 
         <Button
             android:onClick="onStartGameClick"

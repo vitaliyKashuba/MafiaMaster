@@ -22,7 +22,6 @@ public class RolesRandomizeActivity extends AppCompatActivity
     TextView twRoleName;
 
     Button bStartGame;
-    Button bGetRole;
     Button bNextPlayer;
     ImageButton ibGetRole;
 
@@ -45,8 +44,8 @@ public class RolesRandomizeActivity extends AppCompatActivity
         textInputLayout.setHint(getString(R.string.inputNameHint));
 
         bStartGame = (Button)findViewById(R.id.buttonStartGame);
-        bGetRole = (Button)findViewById(R.id.buttonGetRole);
         bNextPlayer = (Button)findViewById(R.id.buttonNextPlayer);
+        ibGetRole = (ImageButton)findViewById(R.id.imageView);
 
         bStartGame.setClickable(false);
         bNextPlayer.setClickable(false);
@@ -69,7 +68,7 @@ public class RolesRandomizeActivity extends AppCompatActivity
         players.put(name, role);
         playersIterator++;
 
-        bGetRole.setClickable(false);
+        ibGetRole.setClickable(false);
 
         if(players.size() == roles.size())
         {
@@ -101,7 +100,7 @@ public class RolesRandomizeActivity extends AppCompatActivity
      */
     public void onNextPlayerClick(View view)
     {
-        bGetRole.setClickable(true);
+        ibGetRole.setClickable(true);
         bNextPlayer.setClickable(false);
         twRoleName.setText("");
     }
