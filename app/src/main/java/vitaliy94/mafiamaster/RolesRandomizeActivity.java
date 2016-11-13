@@ -61,7 +61,7 @@ public class RolesRandomizeActivity extends AppCompatActivity
      *
      * button should be clicked after name entered
      */
-    public void onGetRoleClick(View view)
+    public void onGetRoleClick(View view) //TODO add input checker
     {
         String name = inputName.getText().toString();
         Roles role = roles.get(playersIterator);
@@ -69,6 +69,9 @@ public class RolesRandomizeActivity extends AppCompatActivity
         playersIterator++;
 
         ibGetRole.setClickable(false);
+
+        changeCardImage(role);
+        twRoleName.setText(getString(role.getResId()));
 
         if(players.size() == roles.size())
         {
@@ -78,8 +81,6 @@ public class RolesRandomizeActivity extends AppCompatActivity
         else
         {
             inputName.setText("");
-            twRoleName.setText(getString(role.getResId()));
-            getString(R.string.role_comissar);
             Snackbar.make(view, "Игрок добавлен, осталось " + (roles.size()-playersIterator), Snackbar.LENGTH_LONG).setDuration(4000).show();
             bNextPlayer.setClickable(true);
         }
@@ -103,5 +104,21 @@ public class RolesRandomizeActivity extends AppCompatActivity
         ibGetRole.setClickable(true);
         bNextPlayer.setClickable(false);
         twRoleName.setText("");
+        setDefaultCardImage();
+    }
+
+    void changeCardImage(Roles role)
+    {
+        switch (role)
+        {
+            case MAFIA:
+                ibGetRole.setImageResource(R.drawable.mafia);
+                break;
+        }
+    }
+
+    void setDefaultCardImage()
+    {
+        ibGetRole.setImageResource(R.drawable.card_unknown2);
     }
 }
