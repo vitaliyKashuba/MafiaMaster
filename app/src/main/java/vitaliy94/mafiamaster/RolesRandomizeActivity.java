@@ -1,5 +1,6 @@
 package vitaliy94.mafiamaster;
 
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 import java.util.ArrayList;
 import java.util.TreeMap;
@@ -20,6 +22,7 @@ public class RolesRandomizeActivity extends AppCompatActivity
     Button bStartGame;
     Button bGetRole;
     Button bNextPlayer;
+    ImageButton ibGetRole;
 
     TreeMap<String, Roles> players;
     ArrayList<Roles> roles;
@@ -66,10 +69,14 @@ public class RolesRandomizeActivity extends AppCompatActivity
 
         if(players.size() == roles.size())
         {
+            Snackbar.make(view, "Можно начинать игру", Snackbar.LENGTH_LONG).setDuration(4000).show();
             bStartGame.setClickable(true);
         }
         else
         {
+            inputName.setText("");
+            //ibGetRole.setI
+            Snackbar.make(view, "Игрок добавлен, осталось " + (roles.size()-playersIterator), Snackbar.LENGTH_LONG).setDuration(4000).show();
             bNextPlayer.setClickable(true);
         }
 
