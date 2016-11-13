@@ -11,9 +11,9 @@
     tools:context="vitaliy94.mafiamaster.GameActivity">
 
     <ListView
+        android:id="@+id/lV"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/listView" />
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

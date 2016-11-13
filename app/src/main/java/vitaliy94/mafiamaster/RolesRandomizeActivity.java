@@ -96,7 +96,7 @@ public class RolesRandomizeActivity extends AppCompatActivity
     {
         //start game
         Intent intent = new Intent(RolesRandomizeActivity.this, GameActivity.class);
-        //intent.putExtra("roles", roles);
+        intent.putExtra("players", players);
         startActivity(intent);
     }
 
