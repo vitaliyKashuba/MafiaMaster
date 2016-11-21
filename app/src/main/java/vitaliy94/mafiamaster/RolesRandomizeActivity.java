@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.TreeMap;
@@ -62,8 +63,14 @@ public class RolesRandomizeActivity extends AppCompatActivity
      *
      * button should be clicked after name entered
      */
-    public void onGetRoleClick(View view) //TODO add input checker
+    public void onGetRoleClick(View view)
     {
+        if(!isNameNotEmpty())
+        {
+            Toast toast = Toast.makeText(getApplicationContext(), "Введите имя!", Toast.LENGTH_SHORT);
+            toast.show();
+            return;
+        }
         String name = inputName.getText().toString();
         Roles role = roles.get(playersIterator);
         players.put(name, role);
@@ -151,5 +158,17 @@ public class RolesRandomizeActivity extends AppCompatActivity
     void setDefaultCardImage()
     {
         ibGetRole.setImageResource(R.drawable.card_unknown2);
+    }
+
+    boolean isNameNotEmpty()
+    {
+        if(inputName.getText().length()>0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }
