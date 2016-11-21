@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -70,7 +71,7 @@ public class MainActivity extends AppCompatActivity
         tvMafiaCount.setText(String.valueOf(mafiaCount));
     }
 
-    public void onStartClick(View view) //TODO add exception if roles more then players
+    public void onStartClick(View view)
     {
         roles = new ArrayList<>();
 
@@ -112,6 +113,17 @@ public class MainActivity extends AppCompatActivity
             roles.add(Roles.MAFIA);
         }
 
+        /**
+         * check is there no math mistakes in players count and active roles selective
+         */
+        if (roles.size()>playersCount)
+        {
+            Toast toast = Toast.makeText(getApplicationContext(), "Проверьте количество ироков и выбранные роли", Toast.LENGTH_SHORT);
+            toast.show();
+            roles.clear();
+            return;
+        }
+
         for (int i = roles.size(); i < playersCount; i++)
         {
             roles.add(Roles.CITIZEN);
@@ -124,4 +136,5 @@ public class MainActivity extends AppCompatActivity
         intent.putExtra("roles", roles);
         startActivity(intent);
     }
+
 }
