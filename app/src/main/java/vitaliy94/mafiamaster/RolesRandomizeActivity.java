@@ -1,6 +1,7 @@
 package vitaliy94.mafiamaster;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -33,11 +34,13 @@ public class RolesRandomizeActivity extends AppCompatActivity
     int playersIterator;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
+    protected void onCreate(Bundle savedInstanceState) //TODO make it usable with landscape orientation
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_roles_randomize);
         getSupportActionBar().hide();
+
+        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         textInputLayout = (TextInputLayout)findViewById(R.id.inputNameLayout);
         inputName = (EditText)textInputLayout.findViewById(R.id.inputName);

@@ -1,6 +1,7 @@
 package vitaliy94.mafiamaster;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -30,10 +31,12 @@ public class MainActivity extends AppCompatActivity
     ArrayList<Roles> roles;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
+    protected void onCreate(Bundle savedInstanceState) //TODO make it usable with landscape orientation
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         tvPlayersCount = (TextView)findViewById(R.id.playersCount);
         tvMafiaCount = (TextView)findViewById(R.id.mafiaCount);
