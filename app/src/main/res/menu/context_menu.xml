@@ -7,6 +7,8 @@
         android:title="SUSPECT" />
     <item android:id="@+id/alibi"
         android:title="ALIBI" />
+    <item android:id="@+id/silent"
+        android:title="SILENT" />
     <item android:id="@+id/clear"
         android:title="CLEAR" />
 

@@ -2,5 +2,5 @@ package vitaliy94.mafiamaster;
 
 public enum Status
 {
-    NONE, DEAD, SUSPECT, ALIBI;
+    NONE, DEAD, SUSPECT, ALIBI, SILENT;
 }

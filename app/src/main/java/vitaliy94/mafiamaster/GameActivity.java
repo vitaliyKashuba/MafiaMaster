@@ -18,7 +18,6 @@ import java.util.ArrayList;
 public class GameActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener
 {
     ListView listView;
-
     ArrayList players;
     PlayersAdapter adapter;
     SwipeRefreshLayout srLayout;
@@ -73,6 +72,10 @@ public class GameActivity extends AppCompatActivity implements SwipeRefreshLayou
                 ll.setBackgroundColor(Color.GREEN);
                 twStatus.setText("ALIBI");
                 return true;
+            case R.id.silent:
+                ll.setBackgroundColor(Color.GRAY);
+                twStatus.setText("SILENT");
+                return true;
             case R.id.clear:
                 ll.setBackgroundColor(Color.WHITE);// TODO change to default theme color when add themes
                 twStatus.setText("");
@@ -82,11 +85,26 @@ public class GameActivity extends AppCompatActivity implements SwipeRefreshLayou
         }
     }
 
+    /**
+     * calls at new round
+     * clear suspect's and alibi player
+     * leave only DEAD and non-status players
+     */
     @Override
     public void onRefresh()
     {
+        for (int i = 0; i < listView.getCount(); i++)
+        {
+            LinearLayout ll = (LinearLayout)listView.getChildAt(i);
+            TextView twStatus = (TextView) ll.getChildAt(2);
+            Log.d("STATUSS", twStatus.getText().toString());
 
-
+            if("SILENT".contentEquals(twStatus.getText()) || "ALIBI".contentEquals(twStatus.getText()) || "SUSPECT".contentEquals(twStatus.getText()))//some kind of magic. it won't work like twStatus.getText().toString.equals("...")
+            {
+                ll.setBackgroundColor(Color.WHITE); // TODO change to default theme color when add themes
+                twStatus.setText("");
+            }
+        }
 
         srLayout.setRefreshing(false);
     }
