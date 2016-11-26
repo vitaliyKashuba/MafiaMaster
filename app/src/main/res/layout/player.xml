@@ -1,21 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="match_parent">
     
     <TextView
         android:id="@+id/player_list_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_width="105dp"
+        android:layout_height="50dp"
+        android:textSize="17sp"
+        android:gravity="center_vertical" />
 
     <TextView
         android:id="@+id/player_list_role"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:textSize="17sp"
+        android:gravity="center_vertical" />
 
     <TextView
         android:id="@+id/player_list_status"
+        android:layout_height="50dp"
+        android:textSize="17sp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:gravity="center_vertical"
+        android:textAlignment="textEnd" />
 
 </LinearLayout>

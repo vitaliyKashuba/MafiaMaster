@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/edit"
-        android:title="edit" />
-    <item android:id="@+id/delete"
-        android:title="delete" />
+    <item android:id="@+id/dead"
+        android:title="DEAD" />
+    <item android:id="@+id/suspect"
+        android:title="SUSPECT" />
+    <item android:id="@+id/alibi"
+        android:title="ALIBI" />
+    <item android:id="@+id/clear"
+        android:title="CLEAR" />
 
 </menu>

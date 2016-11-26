@@ -58,7 +58,7 @@ public class PlayersAdapter extends BaseAdapter
         Player p = (Player)getItem(i);
 
         ((TextView) v.findViewById(R.id.player_list_name)).setText(p.getName());
-        ((TextView) v.findViewById(R.id.player_list_role)).setText("");
+        ((TextView) v.findViewById(R.id.player_list_role)).setText(p.getRole().toString());
         ((TextView) v.findViewById(R.id.player_list_status)).setText("");
 
         return v;

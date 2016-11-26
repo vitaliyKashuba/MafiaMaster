@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -22,7 +23,7 @@ import java.util.TreeMap;
 
 public class GameActivity extends AppCompatActivity
 {
-    //ListView listView;
+    ListView listView;
 
     //HashMap<String, Roles> players; //treeMap beomes hashMap after intent. some kind of magic
 
@@ -78,9 +79,10 @@ public class GameActivity extends AppCompatActivity
 
         adapter = new PlayersAdapter(this, players);
 
-        ListView lvMain = (ListView) findViewById(R.id.lV);
-        lvMain.setAdapter(adapter);
+        listView = (ListView) findViewById(R.id.lV);
+        listView.setAdapter(adapter);
 
+        registerForContextMenu(listView);
 
     }
 
@@ -97,13 +99,26 @@ public class GameActivity extends AppCompatActivity
     public boolean onContextItemSelected(MenuItem item) //TODO finish it
     {
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        LinearLayout ll = (LinearLayout) info.targetView;
+        TextView twStatus = (TextView) ll.getChildAt(2);
         switch (item.getItemId())
         {
-            case R.id.edit:
-                //editItem(info.position); // метод, выполняющий действие при редактировании пункта меню
+            case R.id.dead:
+                ll.setBackgroundColor(Color.RED);
+                twStatus.setText("DEAD");
+                Log.d("layout", info.targetView.toString());
                 return true;
-            case R.id.delete:
-                //deleteItem(info.position); //метод, выполняющий действие при удалении пункта меню
+            case R.id.suspect:
+                ll.setBackgroundColor(Color.YELLOW);
+                twStatus.setText("SUSPECT");
+                return true;
+            case R.id.alibi:
+                ll.setBackgroundColor(Color.GREEN);
+                twStatus.setText("ALIBI");
+                return true;
+            case R.id.clear:
+                ll.setBackgroundColor(Color.WHITE);// TODO change to default theme color when add themes
+                twStatus.setText("");
                 return true;
             default:
                 return super.onContextItemSelected(item);
