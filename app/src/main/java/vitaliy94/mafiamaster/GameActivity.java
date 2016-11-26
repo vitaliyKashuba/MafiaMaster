@@ -83,7 +83,6 @@ public class GameActivity extends AppCompatActivity
         listView.setAdapter(adapter);
 
         registerForContextMenu(listView);
-
     }
 
     @Override
@@ -96,7 +95,7 @@ public class GameActivity extends AppCompatActivity
     }
 
     @Override
-    public boolean onContextItemSelected(MenuItem item) //TODO finish it
+    public boolean onContextItemSelected(MenuItem item)
     {
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
         LinearLayout ll = (LinearLayout) info.targetView;
