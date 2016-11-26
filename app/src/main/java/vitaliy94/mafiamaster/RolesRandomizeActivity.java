@@ -28,8 +28,9 @@ public class RolesRandomizeActivity extends AppCompatActivity
     Button bNextPlayer;
     ImageButton ibGetRole;
 
-    TreeMap<String, Roles> players;
+    //TreeMap<String, Roles> players;
     ArrayList<Roles> roles;
+    ArrayList<Player> players;
 
     int playersIterator;
 
@@ -58,7 +59,8 @@ public class RolesRandomizeActivity extends AppCompatActivity
         bStartGame.setVisibility(View.INVISIBLE);
         bNextPlayer.setVisibility(View.INVISIBLE);
 
-        players = new TreeMap<>();
+        //players = new TreeMap<>();
+        players = new ArrayList<>();
 
         roles = (ArrayList<Roles>)getIntent().getSerializableExtra("roles");
         playersIterator = 0;
@@ -79,7 +81,8 @@ public class RolesRandomizeActivity extends AppCompatActivity
         }
         String name = inputName.getText().toString();
         Roles role = roles.get(playersIterator);
-        players.put(name, role);
+        //players.put(name, role);
+        players.add(new Player(name, role, Status.NONE));
         playersIterator++;
 
         ibGetRole.setClickable(false);

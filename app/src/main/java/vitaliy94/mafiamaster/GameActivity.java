@@ -24,7 +24,10 @@ public class GameActivity extends AppCompatActivity
 {
     //ListView listView;
 
-    HashMap<String, Roles> players; //treeMap beomes hashMap after intent. some kind of magic
+    //HashMap<String, Roles> players; //treeMap beomes hashMap after intent. some kind of magic
+
+    ArrayList players;
+    PlayersAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -33,11 +36,12 @@ public class GameActivity extends AppCompatActivity
         setContentView(R.layout.activity_game);
         getSupportActionBar().hide();
 
-        ListView listView = (ListView)findViewById(R.id.lV);
+        //ListView listView = (ListView)findViewById(R.id.lV);
 
-        players = (HashMap<String, Roles>)getIntent().getSerializableExtra("players");
+        //players = (HashMap<String, Roles>)getIntent().getSerializableExtra("players");
+        players = (ArrayList<Player>)getIntent().getSerializableExtra("players");
 
-        Set<String> p = players.keySet();                       //
+        /*Set<String> p = players.keySet();                       //
         String[] playersRoles = new String[players.size()];     //TODO refactor it. later
         Object[]po = p.toArray();                               //
 
@@ -70,7 +74,13 @@ public class GameActivity extends AppCompatActivity
                 }
                 Log.d("html", tv.getText().toString());
             }
-        });
+        });*/
+
+        adapter = new PlayersAdapter(this, players);
+
+        ListView lvMain = (ListView) findViewById(R.id.lV);
+        lvMain.setAdapter(adapter);
+
 
     }
 
