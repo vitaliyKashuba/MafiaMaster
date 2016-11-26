@@ -52,8 +52,11 @@ public class RolesRandomizeActivity extends AppCompatActivity
         bNextPlayer = (Button)findViewById(R.id.buttonNextPlayer);
         ibGetRole = (ImageButton)findViewById(R.id.imageView);
 
-        bStartGame.setClickable(false);
-        bNextPlayer.setClickable(false);
+        //bStartGame.setClickable(false);
+        //bNextPlayer.setClickable(false);
+
+        bStartGame.setVisibility(View.INVISIBLE);
+        bNextPlayer.setVisibility(View.INVISIBLE);
 
         players = new TreeMap<>();
 
@@ -87,12 +90,14 @@ public class RolesRandomizeActivity extends AppCompatActivity
         if(players.size() == roles.size())
         {
             Snackbar.make(view, "Можно начинать игру", Snackbar.LENGTH_LONG).setDuration(4000).show();
-            bStartGame.setClickable(true);
+            //bStartGame.setClickable(true);
+            bStartGame.setVisibility(View.VISIBLE);
         }
         else
         {
             Snackbar.make(view, "Игрок добавлен, осталось " + (roles.size()-playersIterator), Snackbar.LENGTH_LONG).setDuration(4000).show();
-            bNextPlayer.setClickable(true);
+            //bNextPlayer.setClickable(true);
+            bNextPlayer.setVisibility(View.VISIBLE);
         }
 
         Log.d("players", String.valueOf(players.size()));
@@ -116,7 +121,8 @@ public class RolesRandomizeActivity extends AppCompatActivity
     {
         inputName.setText("");
         ibGetRole.setClickable(true);
-        bNextPlayer.setClickable(false);
+        //bNextPlayer.setClickable(false);
+        bNextPlayer.setVisibility(View.INVISIBLE);
         twRoleName.setText("");
         setDefaultCardImage();
     }
