@@ -60,6 +60,7 @@ public class GameActivity extends AppCompatActivity implements SwipeRefreshLayou
         switch (item.getItemId())
         {
             case R.id.dead:
+                //Log.d("DEFAULT COLOR", ll.getBackground().toString());
                 ll.setBackgroundColor(Color.RED);
                 twStatus.setText("DEAD");
                 Log.d("layout", info.targetView.toString());
@@ -77,7 +78,8 @@ public class GameActivity extends AppCompatActivity implements SwipeRefreshLayou
                 twStatus.setText("SILENT");
                 return true;
             case R.id.clear:
-                ll.setBackgroundColor(Color.WHITE);// TODO change to default theme color when add themes
+                //ll.setBackgroundColor(Color.WHITE);
+                ll.setBackground(null); //null is default background // TODO make it DRY. later
                 twStatus.setText("");
                 return true;
             default:
@@ -101,7 +103,7 @@ public class GameActivity extends AppCompatActivity implements SwipeRefreshLayou
 
             if("SILENT".contentEquals(twStatus.getText()) || "ALIBI".contentEquals(twStatus.getText()) || "SUSPECT".contentEquals(twStatus.getText()))//some kind of magic. it won't work like twStatus.getText().toString.equals("...")
             {
-                ll.setBackgroundColor(Color.WHITE); // TODO change to default theme color when add themes
+                ll.setBackground(null);// TODO make it DRY. later
                 twStatus.setText("");
             }
         }
