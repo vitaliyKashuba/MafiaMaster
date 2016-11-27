@@ -18,6 +18,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import vitaliy94.mafiamaster.entitys.Player;
+import vitaliy94.mafiamaster.util.AlertDialogBuilder;
 import vitaliy94.mafiamaster.util.PlayersAdapter;
 import vitaliy94.mafiamaster.R;
 import vitaliy94.mafiamaster.util.PreferenceSaver;
@@ -48,7 +49,10 @@ public class GameActivity extends PreferenceSaver implements SwipeRefreshLayout.
 
         registerForContextMenu(listView);
 
-        showIntroDialog();
+        if (showIntro3)
+        {
+            showIntroDialog();
+        }
     }
 
     @Override
@@ -129,18 +133,7 @@ public class GameActivity extends PreferenceSaver implements SwipeRefreshLayout.
     void showIntroDialog()
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(GameActivity.this);
-        builder.setTitle(R.string.intro_title)
-                .setMessage(R.string.intro_game_text)
-                .setPositiveButton("ok", new DialogInterface.OnClickListener()
-                {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i)
-                    {
-                        dialogInterface.cancel();
-                    }
-                });
-
-        AlertDialog alert = builder.create();
+        AlertDialog alert = AlertDialogBuilder.buildIntroAlertDialog(builder, getString(R.string.intro_game_text), AlertDialogsEnum.GAME);
         alert.show();
     }
 

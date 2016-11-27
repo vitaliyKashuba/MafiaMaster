@@ -22,6 +22,7 @@ import vitaliy94.mafiamaster.entitys.Player;
 import vitaliy94.mafiamaster.R;
 import vitaliy94.mafiamaster.entitys.Roles;
 import vitaliy94.mafiamaster.entitys.Status;
+import vitaliy94.mafiamaster.util.AlertDialogBuilder;
 import vitaliy94.mafiamaster.util.PreferenceSaver;
 
 public class RolesRandomizeActivity extends PreferenceSaver
@@ -71,7 +72,10 @@ public class RolesRandomizeActivity extends PreferenceSaver
         roles = (ArrayList<Roles>)getIntent().getSerializableExtra("roles");
         playersIterator = 0;
 
-        showIntroDialog();
+        if (showIntro2)
+        {
+            showIntroDialog();
+        }
     }
 
     /**
@@ -199,18 +203,7 @@ public class RolesRandomizeActivity extends PreferenceSaver
     void showIntroDialog()
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(RolesRandomizeActivity.this);
-        builder.setTitle(R.string.intro_title)
-                .setMessage(R.string.intro_randomizer_text)
-                .setPositiveButton("ok", new DialogInterface.OnClickListener()
-                {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i)
-                    {
-                        dialogInterface.cancel();
-                    }
-                });
-
-        AlertDialog alert = builder.create();
+        AlertDialog alert = AlertDialogBuilder.buildIntroAlertDialog(builder, getString(R.string.intro_randomizer_text), AlertDialogsEnum.RANDOMIZER);
         alert.show();
     }
 }

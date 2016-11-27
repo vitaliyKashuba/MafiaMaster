@@ -12,7 +12,8 @@ public class PreferenceSaver extends AppCompatActivity
     public static final String PREFERENCES_SHOW_INTRO_2 = "intro2";
     public static final String PREFERENCES_SHOW_INTRO_3 = "intro3";
     public boolean showIntro1 = true;
-    boolean showIntro2, showIntro3;
+    public boolean showIntro2 = true;
+    public boolean showIntro3 = true;
 
     public static SharedPreferences settings;
 
@@ -26,26 +27,46 @@ public class PreferenceSaver extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         init();
-
-        showIntro1 = settings.getBoolean(PREFERENCES_SHOW_INTRO_1, true);
-        showIntro2 = settings.getBoolean(PREFERENCES_SHOW_INTRO_2, true);
-        showIntro3 = settings.getBoolean(PREFERENCES_SHOW_INTRO_3, true);
+        scanSettings();
     }
 
     @Override
     protected void onResume()
     {
         super.onResume();
+        scanSettings();
+    }
+
+    void scanSettings()
+    {
         showIntro1 = settings.getBoolean(PREFERENCES_SHOW_INTRO_1, true);
         showIntro2 = settings.getBoolean(PREFERENCES_SHOW_INTRO_2, true);
         showIntro3 = settings.getBoolean(PREFERENCES_SHOW_INTRO_3, true);
     }
 
-    static void notShowAgain()
+    static void notShowAgain(AlertDialogsEnum en)
     {
         SharedPreferences.Editor editor = settings.edit();
-        editor.putBoolean(PREFERENCES_SHOW_INTRO_1, false);
+        switch(en)
+        {
+            case MAIN:
+                editor.putBoolean(PREFERENCES_SHOW_INTRO_1, false);
+                break;
+            case RANDOMIZER:
+                editor.putBoolean(PREFERENCES_SHOW_INTRO_2, false);
+                break;
+            case GAME:
+                editor.putBoolean(PREFERENCES_SHOW_INTRO_3, false);
+                break;
+        }
         editor.apply();
     }
 
+    /**
+     * to identify type of alert to apply 'not show again' function
+     */
+    public enum AlertDialogsEnum
+    {
+        MAIN, RANDOMIZER, GAME
+    }
 }

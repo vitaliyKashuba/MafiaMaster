@@ -28,10 +28,17 @@ public class AlertDialogBuilder
         public void onClick(DialogInterface dialogInterface, int i)
         {
             //TODO disable this intro
-            PreferenceSaver.notShowAgain();
+            notShowAgain();
             dialogInterface.cancel();
         }
     };
+
+    private static void notShowAgain()
+    {
+        PreferenceSaver.notShowAgain(enu);
+    }
+
+    private static PreferenceSaver.AlertDialogsEnum enu;
 
     /**
      * builds intro dialog
@@ -40,8 +47,9 @@ public class AlertDialogBuilder
      * @param msg mssage to display
      * @return alert to call .show();
      */
-    public static AlertDialog buildIntroAlertDialog(AlertDialog.Builder builder, String msg)
+    public static AlertDialog buildIntroAlertDialog(AlertDialog.Builder builder, String msg, PreferenceSaver.AlertDialogsEnum en)
     {
+        enu = en;
         builder.setTitle(R.string.intro_title)
                 //.setMultiChoiceItems(s, b, onCheckListener)
                 .setMessage(msg)

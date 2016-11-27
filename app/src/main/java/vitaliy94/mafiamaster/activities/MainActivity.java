@@ -190,7 +190,7 @@ public class MainActivity extends PreferenceSaver
         AlertDialog alert = builder.create();
         alert.show();*/
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-        AlertDialog alert = AlertDialogBuilder.buildIntroAlertDialog(builder, getString(R.string.intro_main_text));
+        AlertDialog alert = AlertDialogBuilder.buildIntroAlertDialog(builder, getString(R.string.intro_main_text), AlertDialogsEnum.MAIN);
         alert.show();
     }
 
