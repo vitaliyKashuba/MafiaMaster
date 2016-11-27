@@ -12,4 +12,8 @@
     <string name="role_chosen_one">Избранный</string>
     <string name="role_citizen">Мирный</string>
     <string name = "striked_text_example"><strike>Текст</strike></string>
+    <string name="intro_title">Как играть</string>
+    <string name="intro_main_text">Выбери количество игроков и роли</string>
+    <string name="intro_randomizer_text">Введи имя и нажми на карту чтобы получить роль. Потом нажми \'СЛЕДУЮЩИЙ ИГРОК\' и передай телефон следующему игроку. Когда все игроки получат роли телефон передаётся ведущему.</string>
+    <string name="intro_game_text">Длинное нажатие на игроке открывает контекстное меню смены статуса игрока (Убит, 10 слов, алиби, вынесен на голосование). В конце раунда свайп сверху вниз стирает все статусы кроме \'УБИТ\'.</string>
 </resources>

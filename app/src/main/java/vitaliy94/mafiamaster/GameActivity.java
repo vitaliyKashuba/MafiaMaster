@@ -1,7 +1,9 @@
 package vitaliy94.mafiamaster;
 
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -40,6 +42,8 @@ public class GameActivity extends AppCompatActivity implements SwipeRefreshLayou
         listView.setAdapter(adapter);
 
         registerForContextMenu(listView);
+
+        showIntroDialog();
     }
 
     @Override
@@ -109,6 +113,30 @@ public class GameActivity extends AppCompatActivity implements SwipeRefreshLayou
         }
 
         srLayout.setRefreshing(false);
+    }
+
+    /**
+     * shows introduction
+     * //TODO make it possible to disable it
+     *
+     * //TODO make fabric method to avoid code copying?
+     */
+    void showIntroDialog()
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(GameActivity.this);
+        builder.setTitle(R.string.intro_title)
+                .setMessage(R.string.intro_game_text)
+                .setPositiveButton("ok", new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i)
+                    {
+                        dialogInterface.cancel();
+                    }
+                });
+
+        AlertDialog alert = builder.create();
+        alert.show();
     }
 
 }

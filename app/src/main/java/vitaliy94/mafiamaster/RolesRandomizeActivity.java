@@ -1,9 +1,11 @@
 package vitaliy94.mafiamaster;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -64,6 +66,8 @@ public class RolesRandomizeActivity extends AppCompatActivity
 
         roles = (ArrayList<Roles>)getIntent().getSerializableExtra("roles");
         playersIterator = 0;
+
+        showIntroDialog();
     }
 
     /**
@@ -182,5 +186,27 @@ public class RolesRandomizeActivity extends AppCompatActivity
         {
             return false;
         }
+    }
+
+    /**
+     * shows introduction
+     * //TODO make it possible to disable it
+     */
+    void showIntroDialog()
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(RolesRandomizeActivity.this);
+        builder.setTitle(R.string.intro_title)
+                .setMessage(R.string.intro_randomizer_text)
+                .setPositiveButton("ok", new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i)
+                    {
+                        dialogInterface.cancel();
+                    }
+                });
+
+        AlertDialog alert = builder.create();
+        alert.show();
     }
 }

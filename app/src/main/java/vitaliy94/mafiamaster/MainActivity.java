@@ -1,7 +1,9 @@
 package vitaliy94.mafiamaster;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -50,6 +52,7 @@ public class MainActivity extends AppCompatActivity
         cbSheriff = (CheckBox)findViewById(R.id.checkBoxSheriff);
         cbChosenOne = (CheckBox)findViewById(R.id.checkBoxChosenOne);
 
+        showIntroDialog();
     }
 
     public void onPlayersClick(View view)
@@ -138,6 +141,29 @@ public class MainActivity extends AppCompatActivity
         Intent intent = new Intent(MainActivity.this, RolesRandomizeActivity.class);
         intent.putExtra("roles", roles);
         startActivity(intent);
+    }
+
+    /**
+     * shows introduction
+     * //TODO make it possible to disable it
+     */
+    void showIntroDialog()
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setTitle(R.string.intro_title)
+                .setMessage(R.string.intro_main_text)
+                .setPositiveButton("ok", new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i)
+                    {
+                        dialogInterface.cancel();
+                    }
+                });
+
+        AlertDialog alert = builder.create();
+        alert.show();
+
     }
 
 }
