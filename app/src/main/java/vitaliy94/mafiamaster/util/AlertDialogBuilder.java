@@ -1,8 +1,10 @@
-package vitaliy94.mafiamaster;
+package vitaliy94.mafiamaster.util;
 
 import android.support.v7.app.AlertDialog;
 import android.content.DialogInterface;
 import android.util.Log;
+
+import vitaliy94.mafiamaster.R;
 
 /**
  * Contains common for alert dialogs
@@ -11,7 +13,7 @@ import android.util.Log;
  */
 public class AlertDialogBuilder
 {
-    static DialogInterface.OnClickListener onOkListener = new DialogInterface.OnClickListener()
+    private static DialogInterface.OnClickListener onOkListener = new DialogInterface.OnClickListener()
     {
         @Override
         public void onClick(DialogInterface dialogInterface, int i)
@@ -20,7 +22,7 @@ public class AlertDialogBuilder
         }
     };
 
-    static DialogInterface.OnClickListener onDontShowAgainListener = new DialogInterface.OnClickListener()
+    private static DialogInterface.OnClickListener onDontShowAgainListener = new DialogInterface.OnClickListener()
     {
         @Override
         public void onClick(DialogInterface dialogInterface, int i)
@@ -37,7 +39,7 @@ public class AlertDialogBuilder
      * @param msg mssage to display
      * @return alert to call .show();
      */
-    static AlertDialog buildIntroAlertDialog(AlertDialog.Builder builder, String msg)
+    public static AlertDialog buildIntroAlertDialog(AlertDialog.Builder builder, String msg)
     {
         builder.setTitle(R.string.intro_title)
                 //.setMultiChoiceItems(s, b, onCheckListener)
@@ -45,7 +47,6 @@ public class AlertDialogBuilder
                 .setPositiveButton("ok", onOkListener)
                 .setNegativeButton(R.string.intro_do_not_show_again, onDontShowAgainListener);
 
-        AlertDialog alert = builder.create();
-        return alert;
+        return builder.create();
     }
 }

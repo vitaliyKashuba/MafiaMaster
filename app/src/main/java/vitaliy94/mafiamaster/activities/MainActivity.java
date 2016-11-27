@@ -1,18 +1,21 @@
-package vitaliy94.mafiamaster;
+package vitaliy94.mafiamaster.activities;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+
+import vitaliy94.mafiamaster.util.AlertDialogBuilder;
+import vitaliy94.mafiamaster.R;
+import vitaliy94.mafiamaster.util.Randomizer;
+import vitaliy94.mafiamaster.entitys.Roles;
 
 public class MainActivity extends AppCompatActivity
 {

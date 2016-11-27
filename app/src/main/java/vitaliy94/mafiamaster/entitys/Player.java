@@ -1,4 +1,4 @@
-package vitaliy94.mafiamaster;
+package vitaliy94.mafiamaster.entitys;
 
 import java.io.Serializable;
 

@@ -1,4 +1,4 @@
-package vitaliy94.mafiamaster;
+package vitaliy94.mafiamaster.activities;
 
 import android.content.DialogInterface;
 import android.graphics.Color;
@@ -16,6 +16,10 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import java.util.ArrayList;
+
+import vitaliy94.mafiamaster.entitys.Player;
+import vitaliy94.mafiamaster.util.PlayersAdapter;
+import vitaliy94.mafiamaster.R;
 
 public class GameActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener
 {

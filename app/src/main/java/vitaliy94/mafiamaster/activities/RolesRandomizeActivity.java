@@ -1,4 +1,4 @@
-package vitaliy94.mafiamaster;
+package vitaliy94.mafiamaster.activities;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -10,7 +10,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -18,7 +17,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.TreeMap;
+
+import vitaliy94.mafiamaster.entitys.Player;
+import vitaliy94.mafiamaster.R;
+import vitaliy94.mafiamaster.entitys.Roles;
+import vitaliy94.mafiamaster.entitys.Status;
 
 public class RolesRandomizeActivity extends AppCompatActivity
 {
@@ -96,13 +99,13 @@ public class RolesRandomizeActivity extends AppCompatActivity
 
         if(players.size() == roles.size())
         {
-            Snackbar.make(view, "Можно начинать игру", Snackbar.LENGTH_LONG).setDuration(4000).show();
+            Snackbar.make(view, "Можно начинать игру", Snackbar.LENGTH_LONG).show();
             //bStartGame.setClickable(true);
             bStartGame.setVisibility(View.VISIBLE);
         }
         else
         {
-            Snackbar.make(view, "Игрок добавлен, осталось " + (roles.size()-playersIterator), Snackbar.LENGTH_LONG).setDuration(4000).show();
+            Snackbar.make(view, "Игрок добавлен, осталось " + (roles.size()-playersIterator), Snackbar.LENGTH_LONG).show();
             //bNextPlayer.setClickable(true);
             bNextPlayer.setVisibility(View.VISIBLE);
         }

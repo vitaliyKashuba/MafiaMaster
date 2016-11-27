@@ -1,9 +1,11 @@
-package vitaliy94.mafiamaster;
+package vitaliy94.mafiamaster.util;
 
 import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Random;
+
+import vitaliy94.mafiamaster.entitys.Roles;
 
 public class Randomizer
 {

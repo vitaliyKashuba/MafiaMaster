@@ -1,4 +1,6 @@
-package vitaliy94.mafiamaster;
+package vitaliy94.mafiamaster.entitys;
+
+import vitaliy94.mafiamaster.R;
 
 public enum Roles {
     MAFIA(R.string.role_mafia),

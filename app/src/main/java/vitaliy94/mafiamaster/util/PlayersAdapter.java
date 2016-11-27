@@ -1,25 +1,25 @@
-package vitaliy94.mafiamaster;
+package vitaliy94.mafiamaster.util;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.CompoundButton.OnCheckedChangeListener;
-import android.widget.ImageView;
 import android.widget.TextView;
 
+import vitaliy94.mafiamaster.entitys.Player;
+import vitaliy94.mafiamaster.R;
 
+/**
+ * used in game activity in custom list view
+ */
 public class PlayersAdapter extends BaseAdapter
 {
-    Context ctx;
-    LayoutInflater lInflater;
-    ArrayList<Player> players;
+    private Context ctx;
+    private LayoutInflater lInflater;
+    private ArrayList<Player> players;
 
     public PlayersAdapter(Context ctx, ArrayList<Player> players)
     {
