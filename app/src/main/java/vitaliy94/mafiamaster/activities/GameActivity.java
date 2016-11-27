@@ -126,9 +126,6 @@ public class GameActivity extends PreferenceSaver implements SwipeRefreshLayout.
 
     /**
      * shows introduction
-     * //TODO make it possible to disable it
-     *
-     * //TODO make fabric method to avoid code copying?
      */
     void showIntroDialog()
     {

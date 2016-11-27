@@ -198,7 +198,6 @@ public class RolesRandomizeActivity extends PreferenceSaver
 
     /**
      * shows introduction
-     * //TODO make it possible to disable it
      */
     void showIntroDialog()
     {

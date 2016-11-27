@@ -58,8 +58,6 @@ public class MainActivity extends PreferenceSaver
         cbSheriff = (CheckBox)findViewById(R.id.checkBoxSheriff);
         cbChosenOne = (CheckBox)findViewById(R.id.checkBoxChosenOne);
 
-        //settings = getSharedPreferences(PREFERENCES, Context.MODE_PRIVATE);
-
         if (showIntro1)
         {
             showIntroDialog();
@@ -156,39 +154,9 @@ public class MainActivity extends PreferenceSaver
 
     /**
      * shows introduction
-     * //TODO make it possible to disable it
      */
     void showIntroDialog()
     {
-        /*String[] s = {getString(R.string.intro_do_not_show_again)};
-        boolean[] b = {false};
-        DialogInterface.OnClickListener onOkListener = new DialogInterface.OnClickListener()
-        {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i)
-            {
-                dialogInterface.cancel();
-            }
-        };
-
-        DialogInterface.OnMultiChoiceClickListener onCheckListener = new DialogInterface.OnMultiChoiceClickListener()
-        {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i, boolean b)
-            {
-                Log.d("CHECK LISTENER", "stub");
-            }
-        };
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-        builder.setTitle(R.string.intro_title)
-                //.setMultiChoiceItems(s, b, onCheckListener)
-                .setMessage(R.string.intro_main_text)
-                .setPositiveButton("ok", onOkListener)
-                .setNegativeButton(getText(R.string.intro_do_not_show_again), onOkListener);
-
-        AlertDialog alert = builder.create();
-        alert.show();*/
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         AlertDialog alert = AlertDialogBuilder.buildIntroAlertDialog(builder, getString(R.string.intro_main_text), AlertDialogsEnum.MAIN);
         alert.show();

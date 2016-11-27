@@ -33,11 +33,20 @@ public class AlertDialogBuilder
         }
     };
 
+    /**
+     * calls within of Listener because cannot create listener with parameter,
+     * but its necessary to call PreferenceSaver.notShowAgain(..) with parameter,
+     * recieved from AlertDialog builder init in activity
+     */
     private static void notShowAgain()
     {
         PreferenceSaver.notShowAgain(enu);
     }
 
+    /**
+     * it changes every time when Alert Dialog builder init in activity
+     * its instead of parameter, that cannot be applyed with creating of OnClickListener
+     */
     private static PreferenceSaver.AlertDialogsEnum enu;
 
     /**

@@ -5,6 +5,11 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+/**
+ * super class for activities
+ * contains saving setting
+ * realized 'not show again alert dialog' function without lots of code-copying but in bad style
+ */
 public class PreferenceSaver extends AppCompatActivity
 {
     public static final String PREFERENCES = "settings";
