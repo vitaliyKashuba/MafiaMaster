@@ -150,7 +150,7 @@ public class MainActivity extends AppCompatActivity
      */
     void showIntroDialog()
     {
-        String[] s = {getString(R.string.intro_do_not_show_again)};
+        /*String[] s = {getString(R.string.intro_do_not_show_again)};
         boolean[] b = {false};
         DialogInterface.OnClickListener onOkListener = new DialogInterface.OnClickListener()
         {
@@ -178,6 +178,9 @@ public class MainActivity extends AppCompatActivity
                 .setNegativeButton(getText(R.string.intro_do_not_show_again), onOkListener);
 
         AlertDialog alert = builder.create();
+        alert.show();*/
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        AlertDialog alert = AlertDialogBuilder.buildIntroAlertDialog(builder, getString(R.string.intro_main_text));
         alert.show();
     }
 
