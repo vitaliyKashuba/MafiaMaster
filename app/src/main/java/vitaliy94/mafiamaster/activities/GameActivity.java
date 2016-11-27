@@ -1,6 +1,7 @@
 package vitaliy94.mafiamaster.activities;
 
 import android.content.DialogInterface;
+import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
@@ -36,6 +37,8 @@ public class GameActivity extends PreferenceSaver implements SwipeRefreshLayout.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
         getSupportActionBar().hide();
+
+        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT); //TODO find how avoid data refesh at orientation change
 
         srLayout = (SwipeRefreshLayout) findViewById(R.id.activity_game);
         srLayout.setOnRefreshListener(this);
