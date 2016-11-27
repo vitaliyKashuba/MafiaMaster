@@ -20,8 +20,9 @@ import java.util.ArrayList;
 import vitaliy94.mafiamaster.entitys.Player;
 import vitaliy94.mafiamaster.util.PlayersAdapter;
 import vitaliy94.mafiamaster.R;
+import vitaliy94.mafiamaster.util.PreferenceSaver;
 
-public class GameActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener
+public class GameActivity extends PreferenceSaver implements SwipeRefreshLayout.OnRefreshListener
 {
     ListView listView;
     ArrayList players;

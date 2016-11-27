@@ -28,6 +28,7 @@ public class AlertDialogBuilder
         public void onClick(DialogInterface dialogInterface, int i)
         {
             //TODO disable this intro
+            PreferenceSaver.notShowAgain();
             dialogInterface.cancel();
         }
     };

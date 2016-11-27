@@ -22,8 +22,9 @@ import vitaliy94.mafiamaster.entitys.Player;
 import vitaliy94.mafiamaster.R;
 import vitaliy94.mafiamaster.entitys.Roles;
 import vitaliy94.mafiamaster.entitys.Status;
+import vitaliy94.mafiamaster.util.PreferenceSaver;
 
-public class RolesRandomizeActivity extends AppCompatActivity
+public class RolesRandomizeActivity extends PreferenceSaver
 {
     TextInputLayout textInputLayout;
     EditText inputName;

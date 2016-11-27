@@ -1,5 +1,6 @@
 package vitaliy94.mafiamaster.activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.support.v7.app.AlertDialog;
@@ -14,10 +15,11 @@ import java.util.ArrayList;
 
 import vitaliy94.mafiamaster.util.AlertDialogBuilder;
 import vitaliy94.mafiamaster.R;
+import vitaliy94.mafiamaster.util.PreferenceSaver;
 import vitaliy94.mafiamaster.util.Randomizer;
 import vitaliy94.mafiamaster.entitys.Roles;
 
-public class MainActivity extends AppCompatActivity
+public class MainActivity extends PreferenceSaver
 {
     int playersCount = 10;
     int mafiaCount = 2;
@@ -56,7 +58,12 @@ public class MainActivity extends AppCompatActivity
         cbSheriff = (CheckBox)findViewById(R.id.checkBoxSheriff);
         cbChosenOne = (CheckBox)findViewById(R.id.checkBoxChosenOne);
 
-        showIntroDialog();
+        //settings = getSharedPreferences(PREFERENCES, Context.MODE_PRIVATE);
+
+        if (showIntro1)
+        {
+            showIntroDialog();
+        }
     }
 
     public void onPlayersClick(View view)
