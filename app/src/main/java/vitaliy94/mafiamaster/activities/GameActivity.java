@@ -19,6 +19,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import vitaliy94.mafiamaster.entitys.Player;
+import vitaliy94.mafiamaster.entitys.Status;
 import vitaliy94.mafiamaster.util.AlertDialogBuilder;
 import vitaliy94.mafiamaster.util.PlayersAdapter;
 import vitaliy94.mafiamaster.R;
@@ -30,6 +31,7 @@ public class GameActivity extends PreferenceSaver implements SwipeRefreshLayout.
     ArrayList players;
     PlayersAdapter adapter;
     SwipeRefreshLayout srLayout;
+    //PlayersAdapter pad;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -49,6 +51,8 @@ public class GameActivity extends PreferenceSaver implements SwipeRefreshLayout.
 
         listView = (ListView) findViewById(R.id.lV);
         listView.setAdapter(adapter);
+
+        //pad = (PlayersAdapter) listView.getAdapter(); // useless??
 
         registerForContextMenu(listView);
 
@@ -73,6 +77,8 @@ public class GameActivity extends PreferenceSaver implements SwipeRefreshLayout.
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
         LinearLayout ll = (LinearLayout) info.targetView;
         TextView twStatus = (TextView) ll.getChildAt(2);
+        TextView twName = (TextView) ll.getChildAt(0);
+
         switch (item.getItemId())
         {
             case R.id.dead:
@@ -80,18 +86,22 @@ public class GameActivity extends PreferenceSaver implements SwipeRefreshLayout.
                 ll.setBackgroundColor(Color.RED);
                 twStatus.setText("DEAD");
                 Log.d("layout", info.targetView.toString());
+                adapter.setStatus(twName.getText().toString(), Status.DEAD);
                 return true;
             case R.id.suspect:
                 ll.setBackgroundColor(Color.YELLOW);
                 twStatus.setText("SUSPECT");
+                adapter.setStatus(twName.getText().toString(), Status.SUSPECT);
                 return true;
             case R.id.alibi:
                 ll.setBackgroundColor(Color.GREEN);
                 twStatus.setText("ALIBI");
+                adapter.setStatus(twName.getText().toString(), Status.ALIBI);
                 return true;
             case R.id.silent:
                 ll.setBackgroundColor(Color.GRAY);
                 twStatus.setText("SILENT");
+                adapter.setStatus(twName.getText().toString(), Status.SILENT);
                 return true;
             case R.id.clear:
                 //ll.setBackgroundColor(Color.WHITE);
@@ -111,11 +121,11 @@ public class GameActivity extends PreferenceSaver implements SwipeRefreshLayout.
     @Override
     public void onRefresh()
     {
-        for (int i = 0; i < listView.getCount(); i++)
+        for (int i = 0; i < listView.getChildCount(); i++) // old for (int i = 0; i < listView.getCount(); i++)
         {
-            LinearLayout ll = (LinearLayout)listView.getChildAt(i);
-            TextView twStatus = (TextView) ll.getChildAt(2);
-            Log.d("STATUSS", twStatus.getText().toString());
+            LinearLayout ll = (LinearLayout)listView.getChildAt(i); //has only less then 12 childs, but getCount is correct
+            TextView twStatus = (TextView) ll.getChildAt(2);        //here crashes with null pointer if players count > 11
+            //Log.d("STATUSS", twStatus.getText().toString());
 
             if("SILENT".contentEquals(twStatus.getText()) || "ALIBI".contentEquals(twStatus.getText()) || "SUSPECT".contentEquals(twStatus.getText()))//some kind of magic. it won't work like twStatus.getText().toString.equals("...")
             {
@@ -123,6 +133,8 @@ public class GameActivity extends PreferenceSaver implements SwipeRefreshLayout.
                 twStatus.setText("");
             }
         }
+
+        adapter.refreshStatuses();
 
         srLayout.setRefreshing(false);
     }

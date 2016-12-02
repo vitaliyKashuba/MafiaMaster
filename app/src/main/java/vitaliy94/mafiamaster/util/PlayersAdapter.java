@@ -3,6 +3,7 @@ package vitaliy94.mafiamaster.util;
 import java.util.ArrayList;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 
 import vitaliy94.mafiamaster.entitys.Player;
 import vitaliy94.mafiamaster.R;
+import vitaliy94.mafiamaster.entitys.Status;
 
 /**
  * used in game activity in custom list view
@@ -46,6 +48,29 @@ public class PlayersAdapter extends BaseAdapter
         return i;
     }
 
+    public void setStatus(String player, Status status)
+    {
+        for(Player p : players)
+        {
+            if ( p.getName().equals(player) )
+            {
+                p.setStatus(status);
+                return;
+            }
+        }
+    }
+
+    public void refreshStatuses()
+    {
+        for (Player p : players)
+        {
+            if (p.getStatus().equals(Status.ALIBI) || p.getStatus().equals(Status.SILENT) || p.getStatus().equals(Status.SUSPECT))
+            {
+                p.setStatus(Status.NONE);
+            }
+        }
+    }
+
     @Override
     public View getView(int i, View view, ViewGroup viewGroup)
     {
@@ -59,7 +84,33 @@ public class PlayersAdapter extends BaseAdapter
 
         ((TextView) v.findViewById(R.id.player_list_name)).setText(p.getName());
         ((TextView) v.findViewById(R.id.player_list_role)).setText(ctx.getString(p.getRole().getResId()));
-        ((TextView) v.findViewById(R.id.player_list_status)).setText("");
+        TextView tvStatus = (TextView) v.findViewById(R.id.player_list_status);
+        Status s = p.getStatus();
+
+        if (s.equals(Status.NONE))
+        {
+            tvStatus.setText("");
+            v.setBackground(null);
+        }
+        else
+        {
+            tvStatus.setText(s.toString());
+            switch(p.getStatus())           //smells un-DRY with GameActivity.onContextItemSelected
+            {
+                case DEAD:
+                    v.setBackgroundColor(Color.RED);
+                    break;
+                case SUSPECT:
+                    v.setBackgroundColor(Color.YELLOW);
+                    break;
+                case ALIBI:
+                    v.setBackgroundColor(Color.GREEN);
+                    break;
+                case SILENT:
+                    v.setBackgroundColor(Color.GRAY);
+                    break;
+            }
+        }
 
         return v;
     }

@@ -29,4 +29,9 @@ public class Player implements Serializable
     {
         return status;
     }
+
+    public void setStatus(Status status)
+    {
+        this.status = status;
+    }
 }
