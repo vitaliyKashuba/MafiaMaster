@@ -35,7 +35,6 @@ public class RolesRandomizeActivity extends PreferenceSaver
     Button bNextPlayer;
     ImageButton ibGetRole;
 
-    //TreeMap<String, Roles> players;
     ArrayList<Roles> roles;
     ArrayList<Player> players;
 
@@ -60,13 +59,9 @@ public class RolesRandomizeActivity extends PreferenceSaver
         bNextPlayer = (Button)findViewById(R.id.buttonNextPlayer);
         ibGetRole = (ImageButton)findViewById(R.id.imageView);
 
-        //bStartGame.setClickable(false);
-        //bNextPlayer.setClickable(false);
-
         bStartGame.setVisibility(View.INVISIBLE);
         bNextPlayer.setVisibility(View.INVISIBLE);
 
-        //players = new TreeMap<>();
         players = new ArrayList<>();
 
         roles = (ArrayList<Roles>)getIntent().getSerializableExtra("roles");
@@ -83,7 +78,7 @@ public class RolesRandomizeActivity extends PreferenceSaver
      *
      * button should be clicked after name entered
      */
-    public void onGetRoleClick(View view)
+    public void onGetRoleClick(View view) // TODO add unique name check
     {
         if(!isNameNotEmpty())
         {
@@ -105,13 +100,11 @@ public class RolesRandomizeActivity extends PreferenceSaver
         if(players.size() == roles.size())
         {
             Snackbar.make(view, "Можно начинать игру", Snackbar.LENGTH_LONG).show();
-            //bStartGame.setClickable(true);
             bStartGame.setVisibility(View.VISIBLE);
         }
         else
         {
             Snackbar.make(view, "Игрок добавлен, осталось " + (roles.size()-playersIterator), Snackbar.LENGTH_LONG).show();
-            //bNextPlayer.setClickable(true);
             bNextPlayer.setVisibility(View.VISIBLE);
         }
 
@@ -123,7 +116,6 @@ public class RolesRandomizeActivity extends PreferenceSaver
      */
     public void onStartGameClick(View view)
     {
-        //start game
         Intent intent = new Intent(RolesRandomizeActivity.this, GameActivity.class);
         intent.putExtra("players", players);
         startActivity(intent);
@@ -136,7 +128,6 @@ public class RolesRandomizeActivity extends PreferenceSaver
     {
         inputName.setText("");
         ibGetRole.setClickable(true);
-        //bNextPlayer.setClickable(false);
         bNextPlayer.setVisibility(View.INVISIBLE);
         twRoleName.setText("");
         setDefaultCardImage();

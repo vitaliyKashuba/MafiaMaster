@@ -48,6 +48,11 @@ public class PlayersAdapter extends BaseAdapter
         return i;
     }
 
+    /**
+     * set status that will not be disappeared after scrolling
+     * see Wiki on github
+     *
+     */
     public void setStatus(String player, Status status)
     {
         for(Player p : players)
@@ -60,6 +65,10 @@ public class PlayersAdapter extends BaseAdapter
         }
     }
 
+    /**
+     * do the same as GameActivity.refresh but works with layouts that would be creted after scrolling too
+     * to understand better see Wiki
+     */
     public void refreshStatuses()
     {
         for (Player p : players)

@@ -31,7 +31,6 @@ public class GameActivity extends PreferenceSaver implements SwipeRefreshLayout.
     ArrayList players;
     PlayersAdapter adapter;
     SwipeRefreshLayout srLayout;
-    //PlayersAdapter pad;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -52,8 +51,6 @@ public class GameActivity extends PreferenceSaver implements SwipeRefreshLayout.
         listView = (ListView) findViewById(R.id.lV);
         listView.setAdapter(adapter);
 
-        //pad = (PlayersAdapter) listView.getAdapter(); // useless??
-
         registerForContextMenu(listView);
 
         if (showIntro3)
@@ -71,6 +68,16 @@ public class GameActivity extends PreferenceSaver implements SwipeRefreshLayout.
         inflater.inflate(R.menu.context_menu, menu);
     }
 
+    /**
+     * context menu of status change handler
+     * change textView status and color of layout
+     * calls setStatus in adapter to apply changes for re-generated after scroll layouts
+     *
+     * seems like can be refactored, but really it can make code even harder
+     *
+     * @param item
+     * @return
+     */
     @Override
     public boolean onContextItemSelected(MenuItem item)
     {
@@ -82,7 +89,6 @@ public class GameActivity extends PreferenceSaver implements SwipeRefreshLayout.
         switch (item.getItemId())
         {
             case R.id.dead:
-                //Log.d("DEFAULT COLOR", ll.getBackground().toString());
                 ll.setBackgroundColor(Color.RED);
                 twStatus.setText("DEAD");
                 Log.d("layout", info.targetView.toString());
@@ -104,7 +110,6 @@ public class GameActivity extends PreferenceSaver implements SwipeRefreshLayout.
                 adapter.setStatus(twName.getText().toString(), Status.SILENT);
                 return true;
             case R.id.clear:
-                //ll.setBackgroundColor(Color.WHITE);
                 ll.setBackground(null); //null is default background // TODO make it DRY. later
                 twStatus.setText("");
                 return true;
@@ -121,11 +126,10 @@ public class GameActivity extends PreferenceSaver implements SwipeRefreshLayout.
     @Override
     public void onRefresh()
     {
-        for (int i = 0; i < listView.getChildCount(); i++) // old for (int i = 0; i < listView.getCount(); i++)
+        for (int i = 0; i < listView.getChildCount(); i++)
         {
-            LinearLayout ll = (LinearLayout)listView.getChildAt(i); //has only less then 12 childs, but getCount is correct
-            TextView twStatus = (TextView) ll.getChildAt(2);        //here crashes with null pointer if players count > 11
-            //Log.d("STATUSS", twStatus.getText().toString());
+            LinearLayout ll = (LinearLayout)listView.getChildAt(i);
+            TextView twStatus = (TextView) ll.getChildAt(2);
 
             if("SILENT".contentEquals(twStatus.getText()) || "ALIBI".contentEquals(twStatus.getText()) || "SUSPECT".contentEquals(twStatus.getText()))//some kind of magic. it won't work like twStatus.getText().toString.equals("...")
             {
