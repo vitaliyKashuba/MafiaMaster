@@ -9,4 +9,20 @@
         <!--<item name="colorAccent">@color/colorAccent</item>-->
     </style>
 
+    <style name="GrayColorAccentDark" parent="Theme.AppCompat">
+        <item name="android:colorBackground">@color/background_dark_1</item>
+        <item name="android:textColorPrimary">@color/text_color_gray</item>
+        <item name="android:colorForeground">@color/text_color_gray</item>
+    </style>
+
+    <style name="GrayColorAccentDark2" parent="Theme.AppCompat.DayNight">
+        <!--<item name="android:background">#0A1115</item>
+        <item name="android:textColor">#8C8E90</item>
+        <item name="colorPrimary">#8C8E90</item>
+        <item name="android:colorBackground">#0A1115</item>
+        <item name="android:textColorPrimary">#8C8E90</item>-->
+    </style>
+
+    <style name="HoloCopy" parent="android:Theme.Holo" />
+
 </resources>
