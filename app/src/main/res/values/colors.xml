@@ -4,10 +4,10 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="background_dark_1">#0a1115</color>
-    <color name="accent_dark_green">#a40808</color>
-    <color name="text_color_gray">#8d97a0</color>
-    <color name="status_dead_dark">#8f0306</color>
-    <color name="status_suspect_dark">#766a02</color>
+    <color name="accent_dark_green">#b40707</color>
+    <color name="text_color_gray">#a3aeb8</color>
+    <color name="status_dead_dark">#9c0407</color>
+    <color name="status_suspect_dark">#f3998a04</color>
     <color name="status_alibi_dark">#019406</color>
     <color name="status_silent_dark">#FF06274A</color>
     <color name="secondary_text_dark">#e08ea1b3</color>
