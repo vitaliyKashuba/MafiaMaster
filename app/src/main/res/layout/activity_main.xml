@@ -92,30 +92,18 @@
 
     <CheckBox
         android:text="@string/role_comissar"
-        android:layout_width="wrap_content"
-        android:layout_height="28dp"
-        tools:layout_editor_absoluteX="0dp"
+        android:layout_width="120dp"
+        android:layout_height="@dimen/main_activity_checkboxes_height"
         android:id="@+id/checkBoxComissar"
         android:duplicateParentState="false"
-        android:lineSpacingExtra="8sp"
         android:layout_marginTop="24dp"
         app:layout_constraintTop_toBottomOf="@+id/textView6"
         android:checked="true" />
 
     <CheckBox
-        android:text="@string/role_sheriff"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/checkBoxSheriff"
-        android:layout_marginStart="40dp"
-        app:layout_constraintLeft_toRightOf="@+id/checkBoxManiac"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/checkBoxDon" />
-
-    <CheckBox
         android:text="@string/role_doctor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="@dimen/main_activity_checkboxes_height"
         tools:layout_editor_absoluteX="0dp"
         android:id="@+id/checkBoxDoctor"
         android:checked="true"
@@ -123,9 +111,19 @@
         app:layout_constraintTop_toBottomOf="@+id/checkBoxComissar" />
 
     <CheckBox
-        android:text="@string/role_maniac"
+        android:text="@string/role_sheriff"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/main_activity_checkboxes_height"
+        android:id="@+id/checkBoxSheriff"
+        android:layout_marginStart="24dp"
+        app:layout_constraintLeft_toRightOf="@+id/checkBoxManiac"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxDon" />
+
+    <CheckBox
+        android:text="@string/role_maniac"
+        android:layout_width="120dp"
+        android:layout_height="@dimen/main_activity_checkboxes_height"
         tools:layout_editor_absoluteX="0dp"
         android:id="@+id/checkBoxManiac"
         android:checked="true"
@@ -134,8 +132,8 @@
 
     <CheckBox
         android:text="@string/role_whore"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="@dimen/main_activity_checkboxes_height"
         tools:layout_editor_absoluteX="3dp"
         android:id="@+id/checkBoxWhore"
         android:checked="true"
@@ -145,17 +143,17 @@
     <CheckBox
         android:text="@string/role_don"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/main_activity_checkboxes_height"
         android:id="@+id/checkBoxDon"
         android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@+id/checkBoxImmortal"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="24dp"
         app:layout_constraintLeft_toRightOf="@+id/checkBoxDoctor" />
 
     <CheckBox
         android:text="@string/role_immortal"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/main_activity_checkboxes_height"
         android:id="@+id/checkBoxImmortal"
         android:layout_marginTop="24dp"
         app:layout_constraintTop_toBottomOf="@+id/mafiaCount"
@@ -165,9 +163,9 @@
     <CheckBox
         android:text="@string/role_chosen_one"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/main_activity_checkboxes_height"
         android:id="@+id/checkBoxChosenOne"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="24dp"
         app:layout_constraintLeft_toRightOf="@+id/checkBoxWhore"
         android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@+id/checkBoxSheriff" />
