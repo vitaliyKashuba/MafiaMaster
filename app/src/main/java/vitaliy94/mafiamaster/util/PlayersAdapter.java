@@ -107,16 +107,16 @@ public class PlayersAdapter extends BaseAdapter
             switch(p.getStatus())           //smells un-DRY with GameActivity.onContextItemSelected
             {
                 case DEAD:
-                    v.setBackgroundColor(Color.RED);
+                    v.setBackgroundColor(ctx.getResources().getColor(R.color.status_dead_dark));
                     break;
                 case SUSPECT:
-                    v.setBackgroundColor(Color.YELLOW);
+                    v.setBackgroundColor(ctx.getResources().getColor(R.color.status_suspect_dark));
                     break;
                 case ALIBI:
-                    v.setBackgroundColor(Color.GREEN);
+                    v.setBackgroundColor(ctx.getResources().getColor(R.color.status_alibi_dark));
                     break;
                 case SILENT:
-                    v.setBackgroundColor(Color.GRAY);
+                    v.setBackgroundColor(ctx.getResources().getColor(R.color.status_silent_dark));
                     break;
             }
         }

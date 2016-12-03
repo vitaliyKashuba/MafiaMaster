@@ -89,23 +89,23 @@ public class GameActivity extends PreferenceSaver implements SwipeRefreshLayout.
         switch (item.getItemId())
         {
             case R.id.dead:
-                ll.setBackgroundColor(Color.RED);
+                ll.setBackgroundColor(getResources().getColor(R.color.status_dead_dark));
                 twStatus.setText("DEAD");
                 Log.d("layout", info.targetView.toString());
                 adapter.setStatus(twName.getText().toString(), Status.DEAD);
                 return true;
             case R.id.suspect:
-                ll.setBackgroundColor(Color.YELLOW);
+                ll.setBackgroundColor(getResources().getColor(R.color.status_suspect_dark));
                 twStatus.setText("SUSPECT");
                 adapter.setStatus(twName.getText().toString(), Status.SUSPECT);
                 return true;
             case R.id.alibi:
-                ll.setBackgroundColor(Color.GREEN);
+                ll.setBackgroundColor(getResources().getColor(R.color.status_alibi_dark));
                 twStatus.setText("ALIBI");
                 adapter.setStatus(twName.getText().toString(), Status.ALIBI);
                 return true;
             case R.id.silent:
-                ll.setBackgroundColor(Color.GRAY);
+                ll.setBackgroundColor(getResources().getColor(R.color.status_silent_dark));
                 twStatus.setText("SILENT");
                 adapter.setStatus(twName.getText().toString(), Status.SILENT);
                 return true;
